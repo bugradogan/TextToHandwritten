@@ -1,0 +1,130 @@
+import pywhatkit as kit
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(798, 335)
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setObjectName("centralwidget")
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.centralwidget)
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.frame = QtWidgets.QFrame(self.centralwidget)
+        font = QtGui.QFont()
+        font.setBold(False)
+        font.setWeight(50)
+        self.frame.setFont(font)
+        self.frame.setStyleSheet("border-color: rgb(0, 170, 0);")
+        self.frame.setFrameShape(QtWidgets.QFrame.Panel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.frame.setLineWidth(3)
+        self.frame.setMidLineWidth(0)
+        self.frame.setObjectName("frame")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.frame)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.label = QtWidgets.QLabel(self.frame)
+        font = QtGui.QFont()
+        font.setFamily("Arial Black")
+        font.setPointSize(15)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label.setFont(font)
+        self.label.setTextFormat(QtCore.Qt.AutoText)
+        self.label.setScaledContents(False)
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.label.setWordWrap(False)
+        self.label.setObjectName("label")
+        self.verticalLayout.addWidget(self.label)
+        self.textEdit = QtWidgets.QTextEdit(self.frame)
+        self.textEdit.setObjectName("textEdit")
+        self.verticalLayout.addWidget(self.textEdit)
+        self.pushButton = QtWidgets.QPushButton(self.frame)
+        font = QtGui.QFont()
+        font.setPointSize(18)
+        font.setBold(True)
+        font.setUnderline(True)
+        font.setWeight(75)
+        font.setStrikeOut(False)
+        font.setKerning(True)
+        self.pushButton.setFont(font)
+        self.pushButton.setObjectName("pushButton")
+        self.verticalLayout.addWidget(self.pushButton)
+        self.verticalLayout_3.addWidget(self.frame)
+        self.frame_2 = QtWidgets.QFrame(self.centralwidget)
+        font = QtGui.QFont()
+        font.setBold(False)
+        font.setWeight(50)
+        self.frame_2.setFont(font)
+        self.frame_2.setStyleSheet("border-color: rgb(0, 170, 0);")
+        self.frame_2.setFrameShape(QtWidgets.QFrame.Panel)
+        self.frame_2.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.frame_2.setLineWidth(3)
+        self.frame_2.setMidLineWidth(0)
+        self.frame_2.setObjectName("frame_2")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.frame_2)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.label_2 = QtWidgets.QLabel(self.frame_2)
+        font = QtGui.QFont()
+        font.setFamily("Arial Black")
+        font.setPointSize(15)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_2.setFont(font)
+        self.label_2.setTextFormat(QtCore.Qt.AutoText)
+        self.label_2.setScaledContents(False)
+        self.label_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_2.setWordWrap(False)
+        self.label_2.setObjectName("label_2")
+        self.verticalLayout_2.addWidget(self.label_2)
+        self.pushButton_2 = QtWidgets.QPushButton(self.frame_2)
+        font = QtGui.QFont()
+        font.setPointSize(18)
+        font.setBold(True)
+        font.setUnderline(True)
+        font.setWeight(75)
+        font.setStrikeOut(False)
+        font.setKerning(True)
+        self.pushButton_2.setFont(font)
+        self.pushButton_2.setObjectName("pushButton_2")
+        self.verticalLayout_2.addWidget(self.pushButton_2)
+        self.verticalLayout_3.addWidget(self.frame_2)
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar.setObjectName("statusbar")
+        MainWindow.setStatusBar(self.statusbar)
+
+        self.pushButton.clicked.connect(self.text_to_handwritten_click)
+
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def text_to_handwritten_click(self):        
+        kit.text_to_handwriting("click")
+            
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.label.setText(_translate("MainWindow", "Text To Handwritten"))
+        self.textEdit.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Enter the text</p></body></html>"))
+        self.pushButton.setText(_translate("MainWindow", "CONVERT"))
+        self.label_2.setText(_translate("MainWindow", "Image Text To Handwritten"))
+        self.pushButton_2.setText(_translate("MainWindow", "SELECT AND CONVERT"))
+
+
+
+     
+
+            
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    window = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(window)
+    window.show()
+    sys.exit(app.exec_())
